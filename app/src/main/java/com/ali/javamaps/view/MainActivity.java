@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void handleResponse(List<Place> placeList) {//getAll() methodunu yukarıda kullandığımda ve o da PlaceDao'da Flowable döndürdüğünden ve o da List of Place döndürdüğünden eninde sonunda benim o list of place'i almam gerekecek o yüzden burada parantezler arasına yazıyorum. yazmazsam zaten hata veriyor.
+    private void handleResponse(List<Place> placeList) {
 
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));// PlaceDao'da ki getAll methodu bana Query işlemi, yani sorgu işlemi SELECT * FROM işlemi yapıyordu, burada da, o işlem sonucunda çıkan çıktıları recyclerView'da liste olarak göstermeyi yaptık. alt alta bunları koyacağımızı söylemiş oluyoruz
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(placeList);
         binding.recyclerView.setAdapter(recyclerAdapter);
     }
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent=new Intent(MainActivity.this, MapsActivity.class);
-        intent.putExtra("info","new");//burdan gidiyorsak intent ile şunu yap, recyclerRow'dan geliyorsa kullanıcı şunu yap demek için bunlara bir keyValue gibi bir şey verdik. Bunları da mapsActivity'de yapıcaz
+        intent.putExtra("info","new");
         startActivity(intent);
 
         return super.onOptionsItemSelected(item);
