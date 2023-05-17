@@ -17,9 +17,9 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PlaceHolder> {
 
-    List<Place> placeList; //daha önce burası ArrayList olarak oluyordu ama şimdi bize liste olarak verildiği için liste olarak yaratabiliriz.
+    List<Place> placeList; 
 
-    public RecyclerAdapter(List<Place> placeList){//hemen bir önceki satırın constructor'ı. Bunu aldıktan sonra diğer yerlerde(aşağıda ki 3 implemente edilmiş fonksiyonlar sanırım) kullanmam daha kolay olacak.
+    public RecyclerAdapter(List<Place> placeList){
         this.placeList=placeList;
 
     }
@@ -27,7 +27,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PlaceH
     @NonNull
     @Override
     public PlaceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RecyclerRowBinding recyclerRowBinding=RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false); //parent.getContext yapmamızın sebbi bir aktivitenin içerisinde olmadığımızdan RecyclerAdapter.this diye alamıyoruz ama parent ile alabiliyoruz
+        RecyclerRowBinding recyclerRowBinding=RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
 
         return new PlaceHolder(recyclerRowBinding);
     }
@@ -53,11 +53,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PlaceH
     }
 
     public class PlaceHolder extends RecyclerView.ViewHolder {
-        RecyclerRowBinding recyclerRowBinding;//Aslında construcor oluştururken yaptığımız şeyleri yapıyoruz. Burada bir class içerisinde değişken tanımladım gibi düşün, aşağıda da onun constructor'unu this.recycler=recycler falan diye eşitliyorum  burada RecyclerView için oluşturduğum xml'i bir parametre olarak tanımlıyorum
+        RecyclerRowBinding recyclerRowBinding;
 
         public PlaceHolder(RecyclerRowBinding recyclerRowBinding) {
 
-            super(recyclerRowBinding.getRoot());//benden bir görünüm istiyor ve ben de o görünümün önceden burada yazan itemView değil, bu şekilde getRoot olacağını söylüyorum
+            super(recyclerRowBinding.getRoot());
             this.recyclerRowBinding=recyclerRowBinding;
         }
     }
